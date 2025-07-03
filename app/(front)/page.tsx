@@ -54,15 +54,15 @@ export default function Home() {
          {/* Background gradient effect */}
         <div className="absolute inset-0 overflow-hidden [mask-image:radial-gradient(50%_50%,white,transparent)] before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_center,#e60a64,transparent_70%)] before:opacity-30 dark:before:opacity-40 after:absolute after:-left-1/2 after:top-1/2 after:aspect-[1/0.9] after:w-[1000%] after:rounded-[100%] after:border-t after:border-[#c5769066] after:bg-white dark:after:bg-zinc-900" />
         <div className="lg:h-[50%] h-[100%] md:h-[100%] font-[family-name:var(--font-geist-sans)] flex flex-col items-center justify-center">
-          <div className="flex flex-col items-center lg:justify-center md:h-[25%] h-[38%] lg:h-[35%] lg:pb-7 md:pb-0">
-            <h2 className="text-black dark:text-[#ffffff] text-[35px] md:text-[50px] lg:text-[47px] font lg:tracking-wider text-center px-3 leading-tight md:leading-none">
-            Smarter, 
-            <AuroraText>Faster workflow</AuroraText>
-            </h2>
-            <p className="lg:text-xl font-normal lg:mt-4 mt-2 text-md text-center">
-            Complete toolkit with premium assets and intelligent creation features for professionals
-            </p>
-          </div>
+       <div className="flex flex-col items-center lg:justify-center md:h-[25%] h-[38%] lg:h-[35%] lg:pb-7 md:pb-0">
+  <h2 className="text-black dark:text-white text-[35px] md:text-[50px] lg:text-[47px] font-bold lg:tracking-tighter text-center px-3 leading-tight md:leading-none">
+    React, <AuroraText>200+ Email Templates</AuroraText>
+  </h2>
+  <p className="lg:text-xl font-normal lg:mt-4 mt-2 text-md text-center max-w-3xl text-gray-700 dark:text-gray-300">
+    Complete toolkit with 200+ premium templates and intelligent premium features
+  </p>
+</div>
+
 
           <div className="flex flex-col items-center justify-center space-y-4 mt-5">
             {/* Tabs Section */}
