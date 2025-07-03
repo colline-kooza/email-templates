@@ -12,6 +12,41 @@ import TrustedBrands from "@/components/TrustedBrands"
 import { SparklesCore } from "@/components/ui/sparkles"
 import { AuroraText } from "@/components/magicui/aurora-text"
 
+// Loading component for TemplateCatalog
+function TemplateCatalogSkeleton() {
+  return (
+    <div className="md:py-8 py-2 relative">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="flex flex-col lg:flex-row gap-8 lg:items-start">
+          {/* Desktop Sidebar Skeleton */}
+          <div className="hidden lg:block w-80 flex-shrink-0">
+            <div className="h-96 bg-gray-100 dark:bg-gray-800 rounded-lg animate-pulse"></div>
+          </div>
+          
+          {/* Main Content Skeleton */}
+          <div className="flex-1">
+            <div className="flex items-center justify-between mb-6">
+              <div className="h-8 w-48 bg-gray-100 dark:bg-gray-800 rounded animate-pulse"></div>
+              <div className="h-8 w-20 bg-gray-100 dark:bg-gray-800 rounded animate-pulse lg:hidden"></div>
+            </div>
+            
+            {/* Grid Skeleton */}
+            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
+              {Array.from({ length: 6 }).map((_, index) => (
+                <div key={index} className="space-y-3">
+                  <div className="aspect-[4/6] bg-gray-100 dark:bg-gray-800 rounded-lg animate-pulse"></div>
+                  <div className="h-4 bg-gray-100 dark:bg-gray-800 rounded animate-pulse"></div>
+                  <div className="h-3 w-20 bg-gray-100 dark:bg-gray-800 rounded animate-pulse"></div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export default function Home() {
   return (
     <div className="overflow-hidden">
@@ -74,7 +109,9 @@ export default function Home() {
         <DiscoverSectionWrapper />
       </Suspense>
 
-      <TemplateCatalogWrapper />
+      <Suspense fallback={<TemplateCatalogSkeleton />}>
+        <TemplateCatalogWrapper />
+      </Suspense>
       
       {/* Add your footer component here */}
       {/* <Footer /> */}
@@ -89,9 +126,9 @@ async function CategoriesCarouselWrapper() {
 
 async function DiscoverSectionWrapper() {
   const { categories = [] } = await getFeaturedCategories()
-  return <DiscoverSection  categories={categories}/>
+  return <DiscoverSection categories={categories}/>
 }
 
 async function TemplateCatalogWrapper() {
-  return <TemplateCatalog  />
+  return <TemplateCatalog />
 }
