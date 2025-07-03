@@ -311,7 +311,20 @@ export async function getTemplates({
 
     // Map templates to include categorySlug
     const mappedTemplates: TemplateResult[] = displayTemplates.map(
-      (template) => ({
+      (template: {
+        id: string;
+        title: string;
+        image: string;
+        isFree: boolean;
+        price: string | null;
+        categoryId: string | null;
+        slug: string;
+        createdAt: Date;
+        category: {
+          name: string;
+          slug: string;
+        } | null;
+      }) => ({
         ...template,
         categorySlug: template.category?.slug || null,
       })
